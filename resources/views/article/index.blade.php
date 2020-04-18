@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+	<a href="{{ route('welcome') }}">Main</a>
     <h1>Список статей</h1>
     @foreach ($articles as $article)
         <h2>{{$article->name}}</h2>

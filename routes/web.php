@@ -15,12 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/about', 'PageController@about');
+Route::get('/about', 'PageController@about')
+	->name('main');
 
 Route::get('/articles', 'ArticleController@index')
 	->name('articles.index');
+
+Route::get('/articles/create', 'ArticleController@create')
+	->name('articles.create');
+
+Route::post('/articles', 'ArticleController@store')
+	->name('articles.store');
 
 Route::get('/articles/{id}', 'ArticleController@show')
 	->name('articles.show');
