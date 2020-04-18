@@ -7,7 +7,6 @@ use App\Article;
 
 class ArticleController extends Controller
 {
-	protected $fillable = ['name', 'body'];
 
      public function index()
     {
@@ -37,7 +36,7 @@ class ArticleController extends Controller
         // Иначе возвращаются данные формы
         $data = $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:1000',
+            'body' => 'required|min:10',
         ]);
 
         $article = new Article();
@@ -45,6 +44,7 @@ class ArticleController extends Controller
         $article->fill($data);
         // При ошибках сохранения возникнет исключение
         $article->save();
+        $request->session()->flash('status', 'Article was added!');
 
         // Редирект на указанный маршрут с добавлением флеш-сообщения
         return redirect()
