@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
+/*
 Route::get('/about', 'PageController@about')
 	->name('main');
 
@@ -39,4 +39,6 @@ Route::get('/articles/{id}', 'ArticleController@show')
 	->name('articles.show');
 
 Route::delete('/articles/{id}', 'ArticleController@destroy')
-	->name('articles.destroy');
+	->name('articles.destroy');*/
+
+Route::resource('/articles', 'ArticleController');

@@ -78,14 +78,14 @@
                     @endauth
                 </div>
             @endif
-
+            
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('articles.show', ['id' => 1], false) }}">Статья</a>
+                    <a href="{{ route('articles.show', 1) }}">Статья</a>
                     <a href="{{ route('articles.create') }}">Создать Статью</a>
                     <a href="{{ route('articles.index') }}">Статьи</a>
 
